@@ -17,6 +17,7 @@
         $current_tweet_ids = (get_object_vars($home_check[$i]))["id"]; //parse the ids from the stdClass object
         array_push($already_tweeted, $current_tweet_ids);
     }
+    $already_tweeted = array_reverse($already_tweeted);
     // var_dump($already_tweeted);  //inspect the $already_tweeted if necessary
     
     //search twitter for references to "Catalina Islnad"
@@ -41,10 +42,13 @@
         if (!in_array($new_ids[$i], $already_tweeted)) {
             //compare the newly searched ids with the ids in the $already_tweeted array.  If the new staus has not been retweeted yet, then favorite and retweet commands are sent.
             $retweet_id = $new_ids[$i];
+            // var_dump($retweet_id);      
             $favorites = $connection->post("favorites/create", ["id" => "$retweet_id"]);
+            // var_dump($favorites);
             $retweet = $connection->post("statuses/retweet/$retweet_id");
+            // var_dump($retweet);  
             $tweet_count++;
             }
         }
-    print "Catalina Bot retweeted $tweet_count statuses.";
+    print "Catalina Bot retweeted $tweet_count statuses.\n";
 ?>
