@@ -46,5 +46,5 @@
             $tweet_count++;
             }
         }
-    print "Catalina Bot retweeted $tweet_count statuses.";
+    print "Catalina Bot retweeted $tweet_count statuses.\n";
 ?>
