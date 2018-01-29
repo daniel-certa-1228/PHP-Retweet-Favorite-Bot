@@ -36,7 +36,7 @@
     for ($i = 0; $i < count($new_ids); $i++) {
         if (!in_array($new_ids[$i], $already_tweeted)) {
             $retweet_id = $new_ids[$i];
-            $favorites = $connection->post("favorites/create", ["id" => "$tweet_ids"]);
+            $favorites = $connection->post("favorites/create", ["id" => "$retweet_id"]);
             $retweet = $connection->post("statuses/retweet/$retweet_id");
             var_dump($retweet_id);
         }
