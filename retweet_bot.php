@@ -19,7 +19,7 @@
     }
     // var_dump($already_tweeted);  //inspect the $already_tweeted if necessary
     
-    //search twitter for references to "Catalina Islnad" and "#catalinaislnad"
+    //search twitter for references to "Catalina Islnad"
     $catalina_search = $connection->get("search/tweets", ["q" => "Catalina Island", "result_type" => "recent", "count" => 30]);
     $catalina_tweets = get_object_vars($catalina_search); //parse the ids from the stdClass object
     $num_of_tweets = count($catalina_tweets["statuses"]); //generate a count based on the number of pulled tweets
