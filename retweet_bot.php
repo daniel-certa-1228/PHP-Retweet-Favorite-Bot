@@ -11,7 +11,7 @@
     // var_dump($connection);
 
     $already_tweeted = [];
-    $home_check = $connection->get("statuses/home_timeline", ["count" => 20]);
+    $home_check = $connection->get("statuses/home_timeline", ["count" => 30]);
 
     for ($i = 0; $i < count($home_check); $i++) {
         $current_tweet_ids = (get_object_vars($home_check[$i]))["id"];
@@ -19,7 +19,7 @@
     }
     // var_dump($already_tweeted);
     
-    $catalina_search = $connection->get("search/tweets", ["q" => "Catalina Island", "result_type" => "recent", "count" => 20]);
+    $catalina_search = $connection->get("search/tweets", ["q" => "Catalina Island, #catalinaisland", "result_type" => "recent", "count" => 30]);
     $catalina_tweets = get_object_vars($catalina_search);
     $num_of_tweets = count($catalina_tweets["statuses"]);
     // echo $num_of_tweets;
