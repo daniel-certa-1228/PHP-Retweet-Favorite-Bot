@@ -43,9 +43,11 @@
             //compare the newly searched ids with the ids in the $already_tweeted array.  If the new staus has not been retweeted yet, then favorite and retweet commands are sent.
             $retweet_id = $new_ids[$i];
             // var_dump($retweet_id); 
-            //TWITTER TOS NO LONGER ALLOWS FAVORITINGS     
+
+            //TWITTER TOS NO LONGER ALLOWS AUTO-FAVORITING   
             // $favorites = $connection->post("favorites/create", ["id" => "$retweet_id"]);s
             // var_dump($favorites);
+            
             $retweet = $connection->post("statuses/retweet/$retweet_id");
             // var_dump($retweet);  
             $tweet_count++;
